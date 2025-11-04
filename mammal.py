@@ -91,7 +91,7 @@ class Mammal(Animal):
 
     def make_sound(self):
         """Override the make_sound method for mammals."""
-        return self.get_name() + " growls, roars, or purrs."
+        return self.get_name() + " growls and purrs."
 
     def feed_young(self):
         """Unique behaviour for mammals."""
@@ -102,12 +102,13 @@ class Mammal(Animal):
         return self.get_name() + " runs moves " + str(self.__speed) + " km/h through the " + self.__habitat + "."
 
     def __str__(self):
-        """Return a formatted string summarising the mammal’s details."""
-        return (self.get_species() + " named " + self.get_name() +
-                ", Age: " + str(self.age) +
-                ", Diet: " + self.diet +
-                ", Fur Type: " + self.__fur_type +
-                ", Fur Color: " + self.__fur_color +
-                ", Habitat: " + self.__habitat +
-                ", Speed: " + str(self.__speed) + " km/h")
+        """Return a descriptive sentence summarising the mammal’s details."""
+        return (
+                self.get_name() + " is a " + self.get_species() +
+                " that lives in the " + self.__habitat + ". " +
+                "It has " + self.__fur_color.lower() + " " + self.__fur_type.lower() +
+                " fur, moves at around " + str(self.__speed) + " km/h, " +
+                "and follows a " + self.diet.lower() + " diet. " +
+                self.get_name() + " is currently " + str(self.age) + " years old."
+        )
 

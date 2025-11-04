@@ -5,4 +5,8 @@ Author: Billy Bizilis
 ID: 110100110
 Username: bizvy001
 This is my own work as defined by the University's Academic Integrity Policy.
-''
+'''
+
+from animal import Animal
+from mammal import Mammal
+
