@@ -152,9 +152,7 @@ class Animal:
         Returns:
             str: The formatted animal description.
         """
-        return (self.__species + " named " + self.__name +
-                ", Age: " + str(self.__age) +
-                ", Diet: " + self.__diet)
+        return (self.__species + " named " + self.__name + ", Age: " + str(self.__age) + ", Diet: " + self.__diet)
 
 
 
