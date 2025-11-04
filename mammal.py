@@ -13,7 +13,7 @@ class Mammal(Animal):
     behaviours from the Animal class and adds mammal-specific traits.
     """
 
-    def __init__(self, name, species, age, diet, fur_type="Short", fur_color="Brown", habitat="Grassland", speed=20):
+    def __init__(self, name, species, age, diet, fur_type="Short", fur_color="Brown", habitat="Grassland", speed=20, weight=50):
         """
         Constructor for the Mammal subclass.
 
@@ -32,6 +32,7 @@ class Mammal(Animal):
         self.fur_color = fur_color
         self.habitat = habitat
         self.speed = speed
+        self.weight = weight
 
     def get_fur_type(self):
         """Return the mammal's fur type."""
@@ -101,6 +102,17 @@ class Mammal(Animal):
         """Describe how the mammal moves."""
         return self.get_name() + " runs moves " + str(self.__speed) + " km/h through the " + self.__habitat + "."
 
+
+    def get_weight(self):
+        """Return the mammal's body weight."""
+        return self.__weight
+
+    def set_weight(self, new_weight):
+        """Set the mammal's body weight."""
+        self.__weight = new_weight
+
+    weight = property(get_weight, set_weight)
+
     def __str__(self):
         """Return a descriptive sentence summarising the mammal’s details."""
         return (
@@ -108,7 +120,8 @@ class Mammal(Animal):
                 " that lives in the " + self.__habitat + ". " +
                 "It has " + self.__fur_color.lower() + " " + self.__fur_type.lower() +
                 " fur, moves at around " + str(self.__speed) + " km/h, " +
+                "weighs about " + str(self.__weight) + " kg, " +
                 "and follows a " + self.diet.lower() + " diet. " +
-                self.get_name() + " is currently " + str(self.age) + " years old."
+                self.get_name() + " is also currently " + str(self.age) + " years old."
         )
 
