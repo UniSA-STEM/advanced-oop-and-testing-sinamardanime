@@ -103,3 +103,40 @@ class Zookeeper(Staff):
         print(self.name + " begins the day by checking the animals' well being.")
         print(self.name + " feeds all assigned animals, refills water supplies, and cleans each enclosure.")
         print("Before finishing, " + self.name + " ensures every animal is healthy and comfortable for the day.")
+
+
+
+
+
+
+
+class Veterinarian(Staff):
+    """
+    The Veterinarian class represents a staff member responsible for
+    monitoring animal health, diagnosing issues, and providing treatment.
+    Veterinarians perform health checks and record medical observations.
+    """
+
+    def __init__(self, name):
+        super().__init__(name, "Veterinarian")
+
+    def conduct_health_check(self, animal):
+        """
+        Conducts a health check on an assigned animal.
+
+        Parameters:
+            animal (Animal): The animal being examined.
+        """
+        print(self.name + " conducts a routine health check on " + animal.name + ".")
+        print("After a careful examination, " + animal.name + " appears healthy and active.")
+
+    def treat_animal(self, animal, issue):
+        """
+        Treats an animal for a given health issue.
+
+        Parameters:
+            animal (Animal): The animal receiving treatment.
+            issue (str): The issue being treated.
+        """
+        print(self.name + " treats " + animal.name + " for " + issue + ".")
+        print("The treatment is successful and " + animal.name + " shows signs of recovery.")
