@@ -161,6 +161,14 @@ class Animal:
         """Returns all health records."""
         return self.__health_records
 
+    def display_health_records(self):
+        """Shows all health issues for the animal."""
+        if self.__health_records:
+            print("\nHealth Records for " + self.__name + ":")
+            for record in self.__health_records:
+                print(" - " + str(record))
+        else:
+            print("\nNo health issues recorded for " + self.__name + ".")
 
     def __str__(self):
         """
