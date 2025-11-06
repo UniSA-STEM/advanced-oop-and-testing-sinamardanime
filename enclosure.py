@@ -58,3 +58,26 @@ class Enclosure:
             self.__size = 100
 
     size = property(get_size, set_size)
+
+
+    def get_cleanliness(self):
+        return self.__cleanliness
+
+
+    def set_cleanliness(self, new_clean):
+        if isinstance(new_clean, (int, float)) and 0 <= new_clean <= 100:
+            self.__cleanliness = new_clean
+        else:
+            print("Invalid cleanliness. Defaulting to 100.")
+            self.__cleanliness = 100
+
+
+    cleanliness = property(get_cleanliness, set_cleanliness)
+
+
+    def get_animals(self):
+        """Returns a list of animals currently in the enclosure."""
+        return self.__animals
+
+
+    animals = property(get_animals)
