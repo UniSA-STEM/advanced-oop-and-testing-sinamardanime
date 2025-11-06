@@ -7,7 +7,7 @@ Username: marsy127
 This is my own work as defined by the University's Academic Integrity Policy.
 '''
 
-
+from health_record import HealthRecord
 
 class Animal:
     """
@@ -37,6 +37,7 @@ class Animal:
         # Use properties for age and diet to apply validation automatically
         self.age = age
         self.diet = diet
+        self.__health_records = []
 
 
     def get_name(self):
