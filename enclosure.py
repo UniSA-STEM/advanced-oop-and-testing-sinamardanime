@@ -17,7 +17,11 @@ class Enclosure:
     """
 
     def __init__(self, name, environment_type, size=100, cleanliness=100):
-        pass
+        self.name = name
+        self.environment_type = environment_type
+        self.size = size
+        self.cleanliness = cleanliness
+        self.__animals = []
 
 
     def get_name(self):
