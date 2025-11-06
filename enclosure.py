@@ -1,12 +1,11 @@
 '''
-File: filename.py
-Description: A brief description of this Python module.
+File: enclosure.py
+Description: Defines the Enclosure class which manages zoo animal habitats.
 Author: Billy Bizilis
 ID: 110100110
 Username: bizvy001
 This is my own work as defined by the University's Academic Integrity Policy.
 '''
-
 
 
 class Enclosure:
@@ -23,7 +22,6 @@ class Enclosure:
         self.cleanliness = cleanliness
         self.__animals = []
 
-
     def get_name(self):
         return self.__name
 
@@ -35,7 +33,6 @@ class Enclosure:
             self.__name = "Unnamed Enclosure"
 
     name = property(get_name, set_name)
-
 
     def get_environment_type(self):
         return self.__environment_type
@@ -49,9 +46,7 @@ class Enclosure:
 
     environment_type = property(get_environment_type, set_environment_type)
 
-
-
-   def get_size(self):
+    def get_size(self):
         return self.__size
 
     def set_size(self, new_size):
@@ -63,10 +58,8 @@ class Enclosure:
 
     size = property(get_size, set_size)
 
-
     def get_cleanliness(self):
         return self.__cleanliness
-
 
     def set_cleanliness(self, new_clean):
         if isinstance(new_clean, (int, float)) and 0 <= new_clean <= 100:
@@ -75,32 +68,27 @@ class Enclosure:
             print("Invalid cleanliness. Defaulting to 100.")
             self.__cleanliness = 100
 
-
     cleanliness = property(get_cleanliness, set_cleanliness)
-
 
     def get_animals(self):
         """Returns a list of animals currently in the enclosure."""
         return self.__animals
 
-
     animals = property(get_animals)
 
+    def add_animal(self, animal):
+        """
+        Adds an animal to the enclosure if it's not already inside.
+        Parameters:
+            animal (Animal): The animal to add.
+        """
+        if animal not in self.__animals:
+            self.__animals.append(animal)
+            print(animal.name + " has been added to the " + self.__name + " enclosure.")
+        else:
+            print(animal.name + " is already in the " + self.__name + " enclosure.")
 
-def add_animal(self, animal):
-    """
-    Adds an animal to the enclosure if it's not already inside.
-    Parameters:
-        animal (Animal): The animal to add.
-    """
-    if animal not in self.__animals:
-        self.__animals.append(animal)
-        print(animal.name + " has been added to the " + self.__name + " enclosure.")
-    else:
-        print(animal.name + " is already in the " + self.__name + " enclosure.")
-
-
- def remove_animal(self, animal):
+    def remove_animal(self, animal):
         """
         Removes an animal from the enclosure.
         Parameters:
@@ -111,3 +99,20 @@ def add_animal(self, animal):
             print(animal.name + " has been removed from the " + self.__name + " enclosure.")
         else:
             print(animal.name + " is not found in the " + self.__name + " enclosure.")
+
+    def report_status(self):
+        """
+        Prints a summary of the enclosure’s current state and animals inside.
+        """
+        print("\nEnclosure Report:")
+        print("Name: " + self.__name)
+        print("Environment Type: " + self.__environment_type)
+        print("Size: " + str(self.__size) + " m²")
+        print("Cleanliness Level: " + str(self.__cleanliness) + "%")
+
+        if self.__animals:
+            print("Animals currently in this enclosure:")
+            for animal in self.__animals:
+                print("- " + animal.name + " (" + animal.species + ")")
+        else:
+            print("No animals are currently housed here.")
