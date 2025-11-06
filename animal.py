@@ -149,6 +149,16 @@ class Animal:
     age = property(get_age, set_age)
     diet = property(get_diet, set_diet)
 
+
+
+    def add_health_record(self, issue, date_reported, severity, treatment_plan="Pending", notes=""):
+        """Adds a new health record for this animal."""
+        record = HealthRecord(issue, date_reported, severity, treatment_plan, notes)
+        self.__health_records.append(record)
+        print(self.__name + "'s health record updated: " + issue)
+
+
+
     def __str__(self):
         """
         Return a readable summary of the animal’s details.
