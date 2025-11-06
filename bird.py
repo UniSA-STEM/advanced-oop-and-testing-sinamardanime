@@ -90,6 +90,11 @@ class Bird(Animal):
         else:
             return self.get_name() + " cannot fly and prefers to walk or hop around."
 
+
+    def move(self):
+        pass
+
+
     def __str__(self):
         """Return a descriptive summary of the bird."""
         flight_status = "can fly" if self.__can_fly else "cannot fly"
