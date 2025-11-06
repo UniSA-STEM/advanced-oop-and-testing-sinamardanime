@@ -33,7 +33,7 @@ class Veterinarian(Staff):
         print(self.name + " treats " + animal.name + " for " + issue + ".")
         print("The treatment is successful and " + animal.name + " shows signs of recovery.")
 
- def update_health_record(self, animal, note):
+    def update_health_record(self, animal, note):
         """
         Updates the health record for an animal with a medical note.
 

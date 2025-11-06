@@ -143,6 +143,11 @@ class Animal:
         """
         return self.__name + " is sleeping peacefully."
 
+    name = property(get_name)
+    species = property(get_species)
+    age = property(get_age, set_age)
+    diet = property(get_diet, set_diet)
+
     def __str__(self):
         """
         Return a readable summary of the animal’s details.

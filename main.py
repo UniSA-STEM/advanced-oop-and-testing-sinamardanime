@@ -10,6 +10,7 @@ This is my own work as defined by the University's Academic Integrity Policy.
 from animal import Animal
 from mammal import Mammal
 from bird import Bird
-
-
+from enclosure import Enclosure
+from zoo_keeper import Zookeeper
+from veterinarian import Veterinarian
 
