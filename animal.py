@@ -6,10 +6,10 @@ ID: 110100110
 Username: marsy127
 This is my own work as defined by the University's Academic Integrity Policy.
 '''
-
+from abc import ABC, abstractmethod
 from health_record import HealthRecord
 
-class Animal:
+class Animal(ABC):
     """
     The Animal class represents a basic animal with attributes such as
     name, species, age, and diet. It ensures data integrity using
@@ -116,7 +116,7 @@ class Animal:
     diet = property(get_diet, set_diet)
 
 
-
+    @abstractmethod
     def make_sound(self):
         """
         Simulate the animal making a sound.
@@ -124,7 +124,11 @@ class Animal:
         Returns:
             str: A generic sound message.
         """
-        return self.__name + " makes a generic animal sound."
+        pass
+
+    @abstractmethod
+    def move(self):
+        pass
 
     def eat(self):
         """
