@@ -38,9 +38,7 @@ class Animal:
         self.age = age
         self.diet = diet
 
-    # ------------------------------------------------------------
-    # Getters for name and species (no properties)
-    # ------------------------------------------------------------
+
     def get_name(self):
         """
         Return the animal's name.
