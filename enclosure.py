@@ -17,8 +17,8 @@ class Enclosure:
     """
 
     def __init__(self, name, environment_type, size=100, cleanliness=100):
+        pass
 
-    pass
 
     def get_name(self):
         return self.__name
@@ -31,3 +31,16 @@ class Enclosure:
             self.__name = "Unnamed Enclosure"
 
     name = property(get_name, set_name)
+
+
+    def get_environment_type(self):
+        return self.__environment_type
+
+    def set_environment_type(self, new_env):
+        if isinstance(new_env, str) and len(new_env.strip()) > 0:
+            self.__environment_type = new_env
+        else:
+            print("Invalid environment type. Defaulting to 'General'.")
+            self.__environment_type = "General"
+
+    environment_type = property(get_environment_type, set_environment_type)
