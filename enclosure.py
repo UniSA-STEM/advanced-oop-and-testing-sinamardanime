@@ -85,3 +85,29 @@ class Enclosure:
 
 
     animals = property(get_animals)
+
+
+def add_animal(self, animal):
+    """
+    Adds an animal to the enclosure if it's not already inside.
+    Parameters:
+        animal (Animal): The animal to add.
+    """
+    if animal not in self.__animals:
+        self.__animals.append(animal)
+        print(animal.name + " has been added to the " + self.__name + " enclosure.")
+    else:
+        print(animal.name + " is already in the " + self.__name + " enclosure.")
+
+
+ def remove_animal(self, animal):
+        """
+        Removes an animal from the enclosure.
+        Parameters:
+            animal (Animal): The animal to remove.
+        """
+        if animal in self.__animals:
+            self.__animals.remove(animal)
+            print(animal.name + " has been removed from the " + self.__name + " enclosure.")
+        else:
+            print(animal.name + " is not found in the " + self.__name + " enclosure.")
