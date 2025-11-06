@@ -44,3 +44,17 @@ class Enclosure:
             self.__environment_type = "General"
 
     environment_type = property(get_environment_type, set_environment_type)
+
+
+
+   def get_size(self):
+        return self.__size
+
+    def set_size(self, new_size):
+        if isinstance(new_size, (int, float)) and new_size > 0:
+            self.__size = new_size
+        else:
+            print("Invalid size. Defaulting to 100.")
+            self.__size = 100
+
+    size = property(get_size, set_size)
