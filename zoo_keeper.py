@@ -2,11 +2,7 @@
 
 
 
-
-from staff import Staff
-
-
-from staff import Staff  # Import the abstract base class
+from staff import Staff  #
 
 class Zookeeper(Staff):
     """
