@@ -4,50 +4,32 @@ from staff import Staff
 
 class Veterinarian(Staff):
     """
-    The Veterinarian class represents a staff member responsible for
-    monitoring animal health, diagnosing issues, and providing treatment.
-    Veterinarians perform health checks and record medical observations.
+    The Veterinarian monitors animal health, performs checks,
+    and updates medical records.
     """
 
     def __init__(self, name):
         super().__init__(name, "Veterinarian")
 
     def conduct_health_check(self, animal):
-        """
-        Conducts a health check on an assigned animal.
+        """Performs a health inspection."""
+        print(self.name + " checks " + animal.name + ". No visible issues found.")
 
-        Parameters:
-            animal (Animal): The animal being examined.
-        """
-        print(self.name + " conducts a routine health check on " + animal.name + ".")
-        print("After a careful examination, " + animal.name + " appears healthy and active.")
-
-    def treat_animal(self, animal, issue):
-        """
-        Treats an animal for a given health issue.
-
-        Parameters:
-            animal (Animal): The animal receiving treatment.
-            issue (str): The issue being treated.
-        """
+    def treat_animal(self, animal, issue, date_reported, severity="Medium", treatment_plan="Observation"):
+        """Treats an animal and records the treatment."""
         print(self.name + " treats " + animal.name + " for " + issue + ".")
-        print("The treatment is successful and " + animal.name + " shows signs of recovery.")
+        animal.add_health_record(issue, date_reported, severity, treatment_plan, "Treated by " + self.name)
+        print(animal.name + " is now recovering.")
 
     def update_health_record(self, animal, note):
-        """
-        Updates the health record for an animal with a medical note.
-
-        Parameters:
-            animal (Animal): The animal whose record is being updated.
-            note (str): The health note to record.
-        """
-        print(self.name + " updates " + animal.name + "'s health record with note: " + note)
+        """Adds a note to the most recent health record."""
+        if animal.get_health_records():
+            latest = animal.get_health_records()[-1]
+            latest.notes += " | " + note
+            print(self.name + " adds a note for " + animal.name + ": " + note)
+        else:
+            print("No health records found for " + animal.name + ".")
 
     def perform_duty(self):
-        """
-        Describes the veterinarian’s daily responsibilities in the zoo.
-        This method overrides the abstract method from the Staff class.
-        """
-        print(self.name + " begins the day by reviewing recent health reports.")
-        print(self.name + " conducts examinations on animals and provides medical care when needed.")
-        print(self.name + " ensures all health records are up to date before ending the shift.")
+        """Describes the veterinarian's daily routine."""
+        print(self.name + " starts the day reviewing health reports and visiting enclosures.")
