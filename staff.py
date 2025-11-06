@@ -23,3 +23,24 @@ class Staff(ABC):
         self.__assigned_animals = []
         self.__assigned_enclosures = []
 
+    def get_name(self):
+        """Gets the staff member's name."""
+        return self.__name
+
+    def get_role(self):
+        """Gets the staff member's role."""
+        return self.__role
+
+    def get_assigned_animals(self):
+        """Gets the animals assigned to this staff member."""
+        return self.__assigned_animals
+
+    def get_assigned_enclosures(self):
+        """Gets the enclosures assigned to this staff member."""
+        return self.__assigned_enclosures
+
+    # --- Properties ---
+    name = property(get_name)
+    role = property(get_role)
+    assigned_animals = property(get_assigned_animals)
+    assigned_enclosures = property(get_assigned_enclosures)
