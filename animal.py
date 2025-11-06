@@ -157,6 +157,9 @@ class Animal:
         self.__health_records.append(record)
         print(self.__name + "'s health record updated: " + issue)
 
+    def get_health_records(self):
+        """Returns all health records."""
+        return self.__health_records
 
 
     def __str__(self):
