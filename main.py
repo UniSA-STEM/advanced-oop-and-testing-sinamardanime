@@ -17,10 +17,8 @@ from health_record import HealthRecord
 
 
 def main():
-    # ----------------------------
-    # 🦁 1. Create Animal Objects
-    # ----------------------------
-    print("\n=== 🦁 ANIMAL CREATION TESTS ===")
+
+    print("\n===  ANIMAL CREATION  ===")
     lion = Mammal("Leo", "Lion", 5, "Meat", "Thick", "Golden", "Savannah", 190, 80)
     parrot = Bird("Rio", "Parrot", 3, "Seeds", 0.6, True, "Squawk")
 
