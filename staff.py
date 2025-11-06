@@ -44,3 +44,15 @@ class Staff(ABC):
     role = property(get_role)
     assigned_animals = property(get_assigned_animals)
     assigned_enclosures = property(get_assigned_enclosures)
+
+
+class Zookeeper(Staff):
+    """Zookeeper feeds animals and cleans their enclosures."""
+
+    def __init__(self, name):
+        super().__init__(name, "Zookeeper")
+
+    def feed_animal(self, animal):
+        """Feeds an assigned animal."""
+        print(self.name + " feeds " + animal.name + " (" + animal.species + ").")
+
