@@ -14,7 +14,18 @@ class HealthRecord:
     Stores details about an issue, the date reported, its severity, treatment, and notes.
     """
 
-    def __init__(self, issue, date_reported, severity, treatment_plan="Pending", notes=""):
+    def __init__(self, issue: str, date_reported: str, severity: str, treatment_plan: str = "Pending",
+                 notes: str = "") -> None:
+        """
+        Constructor for HealthRecord.
+
+        Parameters:
+            issue (str): The health issue or illness.
+            date_reported (str): The date the issue was reported (entered manually).
+            severity (str): The seriousness of the issue (e.g., Low, Medium, High).
+            treatment_plan (str): The planned treatment (default: "Pending").
+            notes (str): Any additional notes or comments (default: empty).
+        """
         self.issue = issue
         self.date_reported = date_reported
         self.severity = severity
