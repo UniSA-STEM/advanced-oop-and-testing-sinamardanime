@@ -67,9 +67,18 @@ class Mammal(Animal):
         return self.__habitat
 
     def set_habitat(self, new_habitat):
-        """Set a new habitat for the mammal, defaults to 'Grassland' if invalid."""
-        if isinstance(new_habitat, str) and len(new_habitat.strip()) > 0:
-            self.__habitat = new_habitat
+        valid_habitats = ["Grassland", "Savanna", "Savannah", "Forest", "Jungle", "Desert"]
+
+        # Handle None or empty string
+        if new_habitat is None or not isinstance(new_habitat, str) or len(new_habitat.strip()) == 0:
+            print("Invalid habitat provided. Defaulting to 'Grassland'.")
+            self.__habitat = "Grassland"
+            return
+
+        clean_habitat = new_habitat.strip().capitalize()
+
+        if clean_habitat in valid_habitats:
+            self.__habitat = clean_habitat
         else:
             print("Invalid habitat provided. Defaulting to 'Grassland'.")
             self.__habitat = "Grassland"

@@ -78,11 +78,15 @@ class Enclosure:
 
     def add_animal(self, animal):
         """
-        Adds an animal to the enclosure if it's not already inside.
-        Parameters:
-            animal (Animal): The animal to add.
+        Adds an animal to the enclosure unless it is currently under treatment.
         """
         if animal not in self.__animals:
+            # check if the animal has any record with a "Pending" treatment
+            if animal.get_health_records():
+                for record in animal.get_health_records():
+                    if record.treatment_plan.lower() == "pending":
+                        print(animal.name + " is under treatment and cannot be moved to " + self.__name + ".")
+                        return
             self.__animals.append(animal)
             print(animal.name + " has been added to the " + self.__name + " enclosure.")
         else:
