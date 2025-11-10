@@ -20,7 +20,7 @@ def main():
 
     print("\n===  ANIMAL CREATION  ===")
     lion = Mammal("Leo", "Lion", 5, "Meat", "Thick", "Golden", "Savannah", 190, 80)
-    parrot = Bird("Rio", "Parrot", 3, "Seeds", 0.6, True, "Squawk")
+    parrot = Bird("Rio", "Parrot",3, "Seeds", 0.6, True, "Squawk")
 
     print(lion)
     print(parrot)
