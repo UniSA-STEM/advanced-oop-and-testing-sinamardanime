@@ -23,7 +23,7 @@ def main():
     # -------------------------------------------------
     # 1. Create Animals
     # -------------------------------------------------
-    lion = Mammal("Leo", "Lion", 5, "Meat", "Thick", "Golden", "Savannah", 80, 190)
+    lion = Mammal("Leo", "Lion", 5, "Meat", "Thick", "Golden", "Savannah", 50, 190)
     parrot = Bird("Rio", "Parrot", 3, "Seeds", 0.6, True, "Curved", "Chirp", 1.2)
     snake = Reptile("Slither", "Python", 4, "Rodents", "Smooth", "Rainforest", True, 28)
 
