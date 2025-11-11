@@ -114,3 +114,16 @@ class Enclosure:
         else:
             print("No animals are currently housed here.")
 
+    def clean_enclosure(self):
+        """
+        Simulates cleaning the enclosure by increasing cleanliness level.
+        """
+        if self.__cleanliness < 100:
+            self.__cleanliness += 10
+            if self.__cleanliness > 100:
+                self.__cleanliness = 100
+            print("The " + self.__name + " enclosure has been cleaned and is now spotless.")
+        else:
+            print("The " + self.__name + " enclosure is already perfectly clean.")
+
+
