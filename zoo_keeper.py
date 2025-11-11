@@ -36,10 +36,33 @@ class Zookeeper(Staff):
         print("After thorough cleaning, the " + enclosure.name + " enclosure is now spotless and safe.")
 
     def perform_duty(self):
-        """
-        Describes the zookeeper's daily responsibilities in the zoo.
-        This method overrides the abstract method from the Staff class.
-        """
-        print(self.name + " begins the day by checking the animals' well-being.")
-        print(self.name + " feeds all assigned animals, refills water supplies, and cleans each enclosure.")
-        print("Before finishing, " + self.name + " ensures every animal is healthy and comfortable for the day.")
+            """
+            Describes the zookeeper's daily responsibilities in the zoo.
+            This method overrides the abstract method from the Staff class.
+            """
+            if not self.assigned_animals and not self.assigned_enclosures:
+                print(self.name + " has no current assignments today.")
+                return
+
+            print("\n" + self.name + " begins the day by checking assigned animals and enclosures.")
+
+            # Feed assigned animals
+            if self.assigned_animals:
+                print(self.name + " starts feeding time:")
+                for animal in self.assigned_animals:
+                    print(" - " + self.name + " feeds " + animal.get_name() + " the " + animal.get_species() +
+                          " with their " + animal.get_diet().lower() + " diet.")
+                    print("   " + animal.get_name() + " seems happy and makes a sound: " + animal.make_sound())
+
+            # Clean assigned enclosures
+            if self.assigned_enclosures:
+                print("\n" + self.name + " begins cleaning assigned enclosures:")
+                for enclosure in self.assigned_enclosures:
+                    print(" - " + self.name + " cleans the " + enclosure.get_name() +
+                          " (" + enclosure.get_environment_type() + " environment, size " +
+                          str(enclosure.get_size()) + ").")
+                    enclosure.clean_enclosure()
+
+            print(
+                "\nBefore finishing, " + self.name + " checks that all animals are healthy and comfortable for the day.")
+            print(self.name + " completes the day's work successfully.\n")
