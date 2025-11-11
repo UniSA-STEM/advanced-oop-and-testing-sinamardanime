@@ -44,5 +44,15 @@ def main():
     savannah_enclosure.add_animal(lion)
     aviary_enclosure.add_animal(parrot)
 
+
+  # Assign responsibilities
+    zookeeper.assign_animal(lion)
+    zookeeper.assign_enclosure(savannah_enclosure)
+    veterinarian.assign_animal(lion)
+
+    print("\n--- Staff Created ---")
+    print(f"{zookeeper.get_name()} assigned to {savannah_enclosure.get_name()}")
+    print(f"{veterinarian.get_name()} assigned to {lion.get_name()}")
+
 if __name__ == "__main__":
     main()
