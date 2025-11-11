@@ -10,18 +10,19 @@ This is my own work as defined by the University's Academic Integrity Policy.
 
 class Enclosure:
     """
-    The Enclosure class represents a specific area within the zoo that houses
-    animals of a compatible type and environment. It tracks size, environment type,
-    cleanliness level, and the animals it contains.
+    The Enclosure class represents an area in the zoo that houses animals
+    of a compatible type and environment.
     """
 
     def __init__(self, name, environment_type, size=100, cleanliness=100):
-        self.name = name
-        self.environment_type = environment_type
-        self.size = size
-        self.cleanliness = cleanliness
-        self.__animals = []
+        # Initialize private attributes directly
+        self.__name = name
+        self.__environment_type = environment_type
+        self.__size = size
+        self.__cleanliness = cleanliness
+        self.__animals = []  # always private
 
+    # ====== Property: name ======
     def get_name(self):
         return self.__name
 
@@ -34,6 +35,7 @@ class Enclosure:
 
     name = property(get_name, set_name)
 
+    # ====== Property: environment_type ======
     def get_environment_type(self):
         return self.__environment_type
 
@@ -46,6 +48,7 @@ class Enclosure:
 
     environment_type = property(get_environment_type, set_environment_type)
 
+    # ====== Property: size ======
     def get_size(self):
         return self.__size
 
@@ -58,6 +61,7 @@ class Enclosure:
 
     size = property(get_size, set_size)
 
+    # ====== Property: cleanliness ======
     def get_cleanliness(self):
         return self.__cleanliness
 
@@ -70,53 +74,43 @@ class Enclosure:
 
     cleanliness = property(get_cleanliness, set_cleanliness)
 
+    # ====== Property: animals ======
     def get_animals(self):
-        """Returns a list of animals currently in the enclosure."""
         return self.__animals
 
     animals = property(get_animals)
 
+    # ====== Methods ======
     def add_animal(self, animal):
-        """
-        Adds an animal to the enclosure unless it is currently under treatment.
-        """
         if animal not in self.__animals:
-            # check if the animal has any record with a "Pending" treatment
             if animal.get_health_records():
                 for record in animal.get_health_records():
                     if record.treatment_plan.lower() == "pending":
-                        print(animal.name + " is under treatment and cannot be moved to " + self.__name + ".")
+                        print(f"{animal.get_name()} is under treatment and cannot be moved to {self.__name}.")
                         return
             self.__animals.append(animal)
-            print(animal.name + " has been added to the " + self.__name + " enclosure.")
+            print(f"{animal.get_name()} has been added to the {self.__name} enclosure.")
         else:
-            print(animal.name + " is already in the " + self.__name + " enclosure.")
+            print(f"{animal.get_name()} is already in the {self.__name} enclosure.")
 
     def remove_animal(self, animal):
-        """
-        Removes an animal from the enclosure.
-        Parameters:
-            animal (Animal): The animal to remove.
-        """
         if animal in self.__animals:
             self.__animals.remove(animal)
-            print(animal.name + " has been removed from the " + self.__name + " enclosure.")
+            print(f"{animal.get_name()} has been removed from the {self.__name} enclosure.")
         else:
-            print(animal.name + " is not found in the " + self.__name + " enclosure.")
+            print(f"{animal.get_name()} is not found in the {self.__name} enclosure.")
 
     def report_status(self):
-        """
-        Prints a summary of the enclosure’s current state and animals inside.
-        """
         print("\nEnclosure Report:")
-        print("Name: " + self.__name)
-        print("Environment Type: " + self.__environment_type)
-        print("Size: " + str(self.__size) + " m²")
-        print("Cleanliness Level: " + str(self.__cleanliness) + "%")
+        print(f"Name: {self.__name}")
+        print(f"Environment Type: {self.__environment_type}")
+        print(f"Size: {self.__size} m²")
+        print(f"Cleanliness Level: {self.__cleanliness}%")
 
         if self.__animals:
             print("Animals currently in this enclosure:")
             for animal in self.__animals:
-                print("- " + animal.name + " (" + animal.species + ")")
+                print(f"- {animal.get_name()} ({animal.get_species()})")
         else:
             print("No animals are currently housed here.")
+
