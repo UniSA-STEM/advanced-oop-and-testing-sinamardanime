@@ -55,4 +55,50 @@ def unhealthy_animal():
     a.add_health_record("Injury", "2025-11-10", "High", "Treatment", "Leg injury")
     return a
 
+# ---------- TESTS ----------
 
+def test_initialization(normal_animal):
+    """Check if attributes are initialized correctly."""
+    assert normal_animal.get_name() == "Leo"
+    assert normal_animal.get_species() == "Lion"
+    assert normal_animal.get_age() == 5
+    assert normal_animal.get_diet() == "Meat"
+
+
+def test_invalid_age(invalid_age_animal):
+    """Negative age should default to 0."""
+    assert invalid_age_animal.get_age() == 0
+
+
+def test_invalid_diet(invalid_diet_animal):
+    """Empty diet should default to 'Grass'."""
+    assert invalid_diet_animal.get_diet() == "Grass"
+
+
+def test_eat_and_sleep(normal_animal):
+    """Test basic actions."""
+    assert "is eating Meat" in normal_animal.eat()
+    assert "is sleeping" in normal_animal.sleep()
+
+
+def test_make_sound_and_move(normal_animal):
+    """Test subclass-specific methods."""
+    assert "makes a sound" in normal_animal.make_sound()
+    assert "moves around" in normal_animal.move()
+
+
+def test_add_health_record(unhealthy_animal):
+    """Check that health records add correctly."""
+    records = unhealthy_animal.get_health_records()
+    assert len(records) == 1
+    record = records[0]
+    assert isinstance(record, HealthRecord)
+    assert record.issue == "Injury"
+    assert record.severity == "High"
+    assert record.treatment_plan == "Treatment"
+
+
+def test_empty_health_records():
+    """Animal with no health records should return empty list."""
+    a = TestAnimal("Ellie", "Elephant", 5, "Grass")
+    assert len(a.get_health_records()) == 0
