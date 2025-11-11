@@ -37,15 +37,14 @@ def main():
     aviary_enclosure.report_status()
 
 
-    # -------------------------------------------------
-    # 3. Add Animals to Enclosures
-    # -------------------------------------------------
-    print("\n--- Adding Animals to Enclosures ---")
-    savannah_enclosure.add_animal(lion)
-    aviary_enclosure.add_animal(parrot)
 
+    # -------------------------------------------------
+    # 4. Create Staff Members
+    # -------------------------------------------------
+    zookeeper = Zookeeper("Liam the Zookeeper")
+    veterinarian = Veterinarian("Dr. Kate")
 
-  # Assign responsibilities
+    # Assign responsibilities
     zookeeper.assign_animal(lion)
     zookeeper.assign_enclosure(savannah_enclosure)
     veterinarian.assign_animal(lion)
