@@ -26,5 +26,17 @@ def main():
     print(parrot)
 
 
+  # -------------------------------------------------
+    # 2. Create Enclosures
+    # -------------------------------------------------
+    savannah_enclosure = Enclosure("Savannah Habitat", "Savannah", 200, 90)
+    aviary_enclosure = Enclosure("Tropical Aviary", "Forest", 120, 85)
+
+    print("\n--- Enclosures Created ---")
+    savannah_enclosure.report_status()
+    aviary_enclosure.report_status()
+
+
+
 if __name__ == "__main__":
     main()
