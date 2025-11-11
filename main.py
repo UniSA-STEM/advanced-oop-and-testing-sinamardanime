@@ -53,5 +53,29 @@ def main():
     print(f"{zookeeper.get_name()} assigned to {savannah_enclosure.get_name()}")
     print(f"{veterinarian.get_name()} assigned to {lion.get_name()}")
 
+ # -------------------------------------------------
+    # 6. Demonstrate Health Management
+    # -------------------------------------------------
+    print("\n--- Health Management ---")
+    veterinarian.treat_animal(lion, "Leg Injury", "2025/04/2025", "High", "Pending")
+
+    print("\nTrying to move Leo while under treatment...")
+    aviary_enclosure.add_animal(lion)  # Should be prevented because of 'Pending'
+
+    # Update health record once recovered
+    veterinarian.update_health_record(lion, "Recovered and healthy again.")
+
+    # Create a separate sample record for demonstration
+    record = HealthRecord("Broken Wing", "24/11/2025", "Medium", "Healed", "Flying normally again.")
+    print("\nSample Health Record:")
+    print(record)
+
+ # -------------------------------------------------
+    # 7. Final Reports
+    # -------------------------------------------------
+    print("\n--- Enclosure Reports ---")
+    savannah_enclosure.report_status()
+    aviary_enclosure.report_status()
+
 if __name__ == "__main__":
     main()
