@@ -1,15 +1,4 @@
-ChatGPT said:
 
-Perfect, Sina 👍 — now that I’ve read your mammal.py, here’s a complete pytest file that tests it professionally (with fixtures, validation, and subclass-specific behaviour).
-
-✅ test_mammal.py
-
-Create a new file next to your others (in the same folder) called:
-
-test_mammal.py
-
-
-Paste this code inside:
 
 """
 File: test_mammal.py
