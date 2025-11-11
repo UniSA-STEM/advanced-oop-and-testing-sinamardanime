@@ -34,6 +34,7 @@ class Reptile(Animal):
         self.scale_type = scale_type
         self.habitat = habitat
         self.is_venomous = is_venomous
+        self.temperature = temperature
         # === Methods ===
 
     def make_sound(self):

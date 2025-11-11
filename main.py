@@ -14,7 +14,7 @@ from enclosure import Enclosure
 from zoo_keeper import Zookeeper
 from veterinarian import Veterinarian
 from health_record import HealthRecord
-
+from reptile import Reptile
 
 
 def main():
@@ -25,28 +25,31 @@ def main():
     # -------------------------------------------------
     lion = Mammal("Leo", "Lion", 5, "Meat", "Thick", "Golden", "Savannah", 80, 190)
     parrot = Bird("Rio", "Parrot", 3, "Seeds", 0.6, True, "Curved", "Chirp", 1.2)
+    snake = Reptile("Slither", "Python", 4, "Rodents", "Smooth", "Rainforest", True, 28)
 
     print("\n--- Animals Created ---")
     print(lion)
     print(parrot)
+    print(snake)
 
     # -------------------------------------------------
     # 2. Create Enclosures
     # -------------------------------------------------
     savannah_enclosure = Enclosure("Savannah Habitat", "Savannah", 200, 90)
     aviary_enclosure = Enclosure("Tropical Aviary", "Forest", 120, 85)
+    reptile_enclosure = Enclosure("Reptile House", "Rainforest", 150, 95)
 
     print("\n--- Enclosures Created ---")
     savannah_enclosure.report_status()
     aviary_enclosure.report_status()
-
+    reptile_enclosure.report_status()
     # -------------------------------------------------
     # 3. Add Animals to Enclosures
     # -------------------------------------------------
     print("\n--- Adding Animals to Enclosures ---")
     savannah_enclosure.add_animal(lion)
     aviary_enclosure.add_animal(parrot)
-
+    reptile_enclosure.add_animal(snake)
     # -------------------------------------------------
     # 4. Create Staff Members
     # -------------------------------------------------
@@ -84,7 +87,7 @@ def main():
     print("\n--- Enclosure Reports ---")
     savannah_enclosure.report_status()
     aviary_enclosure.report_status()
-
+    reptile_enclosure.report_status()
 
 if __name__ == "__main__":
     main()
