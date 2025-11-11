@@ -60,10 +60,17 @@ def main():
     zookeeper.assign_animal(lion)
     zookeeper.assign_enclosure(savannah_enclosure)
     veterinarian.assign_animal(lion)
-    zookeeper.perform_duty()
+
     print("\n--- Staff Created ---")
     print(f"{zookeeper.get_name()} assigned to {savannah_enclosure.get_name()}")
     print(f"{veterinarian.get_name()} assigned to {lion.get_name()}")
+
+    print("\n--- Zookeeper Performing Duties ---")
+    zookeeper.perform_duty()
+
+    print("\n--- Veterinarian Performing Duties ---")
+    veterinarian.perform_duty()
+
 
     # -------------------------------------------------
     # 5. Demonstrate Health Management

@@ -31,5 +31,36 @@ class Veterinarian(Staff):
             print("No health records found for " + animal.name + ".")
 
     def perform_duty(self):
-        """Describes the veterinarian's daily routine."""
-        print(self.name + " starts the day reviewing health reports and visiting enclosures.")
+        """
+        Describes the veterinarian's daily routine and interactions
+        with assigned animals in a detailed and engaging way.
+        """
+        if len(self.assigned_animals) == 0:
+            print(
+                self.name + " has no assigned animals today, so they assist with routine health checks around the zoo.")
+            return
+
+        print(
+            "\n" + self.name + " arrives at the zoo clinic early in the morning, reviewing medical charts and preparing supplies.")
+
+        for animal in self.assigned_animals:
+            print("\n" + self.name + " visits " + animal.get_name() + " the " + animal.get_species() + ".")
+            print("They gently examine " + animal.get_name() + ", checking breathing, eyes, and movement.")
+
+
+            records = animal.get_health_records()
+
+            if len(records) > 0:
+                print(self.name + " reviews " + animal.get_name() + "'s health record and begins treatment:")
+                for record in records:
+                    print(" - Issue: " + record.get_issue() +
+                          " | Severity: " + record.get_severity_level() +
+                          " | Treatment: " + record.get_treatment_plan())
+                    print("   Treatment applied successfully. " + animal.get_name() + " is recovering well.")
+            else:
+                print("No current issues found for " + animal.get_name() + ". " + self.name +
+                      " gives a vitamin injection and a friendly pat.")
+
+        print(
+            "\nAs the day ends, " + self.name + " updates all medical files and checks on animals resting in the clinic.")
+        print(self.name + " leaves the zoo feeling proud of keeping every creature healthy and strong.\n")
