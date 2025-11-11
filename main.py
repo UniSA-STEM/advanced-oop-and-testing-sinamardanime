@@ -96,5 +96,18 @@ def main():
     aviary_enclosure.report_status()
     reptile_enclosure.report_status()
 
+# -------------------------------------------------
+    # 7. Removing Animals from Enclosures
+    # -------------------------------------------------
+    print("\n--- Removing Animals from Enclosures ---")
+    print("A wildlife organization has decided to temporarily move Leo for medical observation.\n")
+    savannah_enclosure.remove_animal(lion)
+
+    print("\nUpdated Enclosure Report:")
+    print(savannah_enclosure.report_status())
+
+
 if __name__ == "__main__":
     main()
+
+
