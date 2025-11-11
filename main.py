@@ -103,8 +103,8 @@ def main():
     print("A wildlife organization has decided to temporarily move Leo for medical observation.\n")
     savannah_enclosure.remove_animal(lion)
 
-    print("\nUpdated Enclosure Report:")
-    print(savannah_enclosure.report_status())
+    print("\n\n-----------Updated Enclosure Report----------------------")
+    savannah_enclosure.report_status()
 
 
 if __name__ == "__main__":
