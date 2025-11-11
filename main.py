@@ -100,7 +100,7 @@ def main():
     # 7. Removing Animals from Enclosures
     # -------------------------------------------------
     print("\n--- Removing Animals from Enclosures ---")
-    print("A wildlife organization has decided to temporarily move Leo for medical observation.\n")
+    print("A wildlife organisation has decided to temporarily move Leo for medical observation.\n")
     savannah_enclosure.remove_animal(lion)
 
     print("\n\n-----------Updated Enclosure Report----------------------")
