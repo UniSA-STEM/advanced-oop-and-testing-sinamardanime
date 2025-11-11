@@ -6,6 +6,9 @@ ID: 110100110
 Username: bizvy001
 This is my own work as defined by the University's Academic Integrity Policy.
 '''
+from mammal import Mammal
+from bird import Bird
+from reptile import Reptile
 
 
 class Enclosure:
@@ -82,28 +85,31 @@ class Enclosure:
 
     # ====== Methods ======
     def add_animal(self, animal):
-        """Adds an animal with exception handling."""
+        """
+        Adds an animal to the enclosure if it matches the environment type.
+        Prevents incompatible species from being housed together.
+        """
         try:
-            from animal import Animal
-            if not isinstance(animal, Animal):
-                raise TypeError("Object must be an Animal instance")
+            # Environment checks for matching species type
+            if isinstance(animal, Mammal) and self.__environment_type.lower() != "savannah":
+                print(animal.get_name() + " the " + animal.get_species() +
+                      " cannot live in a " + self.__environment_type + " enclosure as they do not suite this habitat.")
+                return
+            elif isinstance(animal, Bird) and self.__environment_type.lower() != "forest":
+                print(animal.get_name() + " the " + animal.get_species() +
+                      " cannot live in a " + self.__environment_type + " enclosure as they do not suite this habitat.")
+                return
+            elif isinstance(animal, Reptile) and self.__environment_type.lower() != "rainforest":
+                print(animal.get_name() + " the " + animal.get_species() +
+                      " cannot live in a " + self.__environment_type + " enclosure as they do not suite this habitat.")
+                return
 
-            if animal not in self.__animals:
-                if animal.get_health_records():
-                    for record in animal.get_health_records():
-                        if record.treatment_plan.lower() == "pending":
-                            raise ValueError(f"{animal.get_name()} is under treatment")
-                self.__animals.append(animal)
-                print(f"{animal.get_name()} has been added to {self.__name}.")
-            else:
-                print(f"{animal.get_name()} is already in {self.__name}.")
+            # If all checks pass, add animal
+            self.__animals.append(animal)
+            print(animal.get_name() + " has been added to the " + self.__name + " enclosure.")
 
-        except ValueError as e:
-            print(f"Cannot add animal: {e}")
-        except TypeError as e:
-            print(f"Invalid animal object: {e}")
         except Exception as e:
-            print(f"Unexpected error adding animal: {e}")
+            print("Error while adding animal: " + str(e))
 
     def remove_animal(self, animal):
         if animal in self.__animals:
