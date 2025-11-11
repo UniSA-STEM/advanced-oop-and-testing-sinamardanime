@@ -85,9 +85,17 @@ class Mammal(Animal):
 
     habitat = property(get_habitat, set_habitat)
 
-    def get_speed(self):
-        """Return the mammal's running speed."""
-        return self.__speed
+    def set_speed(self, new_speed):
+        """Set the mammal's speed with exception handling."""
+        try:
+            if not isinstance(new_speed, (int, float)):
+                raise TypeError("Speed must be a number")
+            if new_speed <= 0:
+                raise ValueError("Speed must be positive")
+            self.__speed = new_speed
+        except (TypeError, ValueError) as e:
+            print(f"Invalid speed: {e}. Defaulting to 20 km/h.")
+            self.__speed = 20
 
     def set_speed(self, new_speed):
         """Set the mammal's speed, defaults to 20 km/h if invalid."""

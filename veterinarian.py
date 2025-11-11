@@ -22,13 +22,32 @@ class Veterinarian(Staff):
         print(animal.name + " is now recovering.")
 
     def update_health_record(self, animal, note):
-        """Adds a note to the most recent health record."""
-        if animal.get_health_records():
-            latest = animal.get_health_records()[-1]
+        """Adds a note with error handling."""
+        try:
+            if animal is None:
+                raise ValueError("Animal cannot be None")
+
+            if not isinstance(note, str) or not note.strip():
+                raise ValueError("Note must be a non-empty string")
+
+            records = animal.get_health_records()
+
+            if len(records) == 0:
+                raise IndexError(f"No health records found for {animal.name}")
+
+            latest = records[-1]
             latest.notes += " | " + note
             print(self.name + " adds a note for " + animal.name + ": " + note)
-        else:
-            print("No health records found for " + animal.name + ".")
+
+        except ValueError as e:
+            print(f"Error: {e}")
+        except IndexError as e:
+            print(f"Error: {e}")
+        except AttributeError:
+            print("Error: Invalid animal object provided")
+        except Exception as e:
+            print(f"Unexpected error: {e}")
+
 
     def perform_duty(self):
         """
