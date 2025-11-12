@@ -20,8 +20,6 @@ from animal import Animal
    """
 class Bird(Animal):
 
-
-
     def __init__(self, name, species, age, diet, wing_span=1.0, can_fly=True, beak_type="Short", song_type="Chirp", weight=1.0):
         """
         This function Initialises a new Bird object with its general and bird-specific attributes.
