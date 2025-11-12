@@ -11,25 +11,29 @@ from health_record import HealthRecord
 
 class Animal(ABC):
     """
-    The Animal class represents a basic animal with attributes such as
-    name, species, age, and diet. It ensures data integrity using
-    encapsulation and validation through controlled access methods.
-    """
+       The Animal class represents a general animal in the zoo.
+
+       It defines shared attributes such as name, species, age, and diet.
+       It also includes functionality for basic animal behaviors like eating,
+       sleeping, and managing health records.
+
+       This class is abstract and must be subclassed by specific animal types
+       (e.g., Mammal, Bird, Reptile) which implement their own sound and movement behaviors.
+       """
 
     def __init__(self, name, species, age, diet):
         """
-        Constructor for the Animal class.
+               Initialises a new Animal object and validates the given attributes.
 
-        Parameters:
-            name (str): The animal's name.
-            species (str): The type/species of the animal.
-            age (int): The animal's age (validated).
-            diet (str): The animal's dietary preference (validated).
+               Parameters:
+                   name (str): The animal’s name (private attribute).
+                   species (str): The species or type of the animal (private attribute).
+                   age (int): The animal’s current age. Must be a non-negative integer.
+                   diet (str): The animal’s dietary preference (e.g., Carnivore, Herbivore).
 
-        Note:
-            - Name and species are private, accessed only through getters.
-            - Age and diet are validated through property setters.
-        """
+               Returns:
+                   None
+               """
         # Private attributes for data hiding
         self.__name = name
         self.__species = species
