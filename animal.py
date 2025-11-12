@@ -45,7 +45,7 @@ class Animal(ABC):
         self.__health_records = []
 
 
-    def get_name(self):
+    def get_name(self) -> str:
         """
         Returns the animal's name.
 
@@ -54,7 +54,7 @@ class Animal(ABC):
         """
         return self.__name # Returns the private attribute __name
 
-    def get_species(self):
+    def get_species(self)  -> str:
          """
         Returns the animal’s species.
 
@@ -64,7 +64,7 @@ class Animal(ABC):
          return self.__species
 
 
-    def get_age(self):
+    def get_age(self) -> int:
         """
         Return the animal's age.
 
@@ -73,21 +73,23 @@ class Animal(ABC):
         """
         return self.__age
 
-    def set_age(self, new_age):
-           """
-        This function Validates and sets the animal’s age.
+    """
+ This function Validates and sets the animal’s age.
 
-        Parameters:
-            new_age (int): The new age to assign to the animal.
+ Parameters:
+     new_age (int): The new age to assign to the animal.
 
-        Validation Rules:
-            - Must be an integer value.
-            - Must be greater than or equal to 0.
-            - If invalid, defaults to 0.
+ Validation Rules:
+     - Must be an integer value.
+     - Must be greater than or equal to 0.
+     - If invalid, defaults to 0.
 
-        Returns:
-            None
-        """
+ Returns:
+     None
+ """
+    def set_age(self, new_age) -> None:
+
+
         # Checks if new_age is valid
         if isinstance(new_age, int) and new_age >= 0:
             self.__age = new_age
@@ -96,20 +98,19 @@ class Animal(ABC):
             print("Invalid age provided. Defaulting to 0.")
             self.__age = 0
 
-    # Property connection for age
-    age = property(get_age, set_age)
 
 
-    def get_diet(self):
+
+    def get_diet(self) -> str:
         """
-        Return the animal's diet.
+               Returns the animal’s dietary preference.
 
-        Returns:
-            str: The current dietary preference of the animal.
-        """
+               Returns:
+                   str: The diet type (e.g., Carnivore, Herbivore, Omnivore).
+               """
         return self.__diet
 
-    def set_diet(self, new_diet):
+    def set_diet(self, new_diet)  -> None:
         """
         Set the animal's diet with validation.
 
@@ -124,25 +125,35 @@ class Animal(ABC):
             print("Invalid diet provided. Defaulting to 'Grass'.")
             self.__diet = "Grass"
 
-    # Property connection for diet
-    diet = property(get_diet, set_diet)
 
 
     @abstractmethod
-    def make_sound(self):
+    def make_sound(self) -> str:
         """
-        Simulate the animal making a sound.
+        Represents how the animal makes a sound.
+
+        This method is abstract and must be overridden by all subclasses
+        to define unique sound behavior (e.g., roar, chirp, hiss).
 
         Returns:
-            str: A generic sound message.
+            str: A description of the animal’s sound.
         """
         pass
 
     @abstractmethod
-    def move(self):
+    def move(self) -> str:
+        """
+        Represents how the animal moves.
+
+        This method is abstract and must be implemented in all subclasses
+        to describe specific movement styles (e.g., runs, flies, slithers).
+
+        Returns:
+            str: A message describing the animal’s movement behavior.
+             """
         pass
 
-    def eat(self):
+    def eat(self) -> str:
         """
         Simulate the animal eating its food.
 
@@ -159,26 +170,46 @@ class Animal(ABC):
             str: A message describing the animal sleeping.
         """
         return self.__name + " is sleeping peacefully."
-
+    # this section defines the properties, which link the getters and setter methods to the actual attribute name
     name = property(get_name)
     species = property(get_species)
     age = property(get_age, set_age)
     diet = property(get_diet, set_diet)
 
+    """
+           Adds a new health record entry for this animal.
 
+           Parameters:
+               issue (str): The health problem or diagnosis.
+               date_reported (str): The date the issue was first recorded.
+               severity (str): The seriousness of the issue (e.g., Low, Medium, High).
+               treatment_plan (str): The suggested plan or status of treatment.
+               notes (str): Optional notes about the issue or progress.
 
-    def add_health_record(self, issue, date_reported, severity, treatment_plan="Pending", notes=""):
-        """Adds a new health record for this animal."""
+           Returns:
+               None
+           """
+    def add_health_record(self, issue, date_reported, severity, treatment_plan="Pending", notes="") -> None:
+
+        # Creates a HealthRecord object and add it to the internal list
         record = HealthRecord(issue, date_reported, severity, treatment_plan, notes)
         self.__health_records.append(record)
+        # Prints confirmation for user feedback
         print(self.__name + "'s health record updated: " + issue)
 
-    def get_health_records(self):
-        """Returns all health records."""
+    def get_health_records(self) -> list:
+        """
+        Returns all health records associated with this animal.
+
+        Returns:
+            list: A list of HealthRecord objects stored for this animal.
+        """
         return self.__health_records
 
-    def display_health_records(self):
-        """Shows all health issues for the animal."""
+    def display_health_records(self) -> None:
+
+
+         # Checks if there are any records to display
         if self.__health_records:
             print("\nHealth Records for " + self.__name + ":")
             for record in self.__health_records:
@@ -188,10 +219,13 @@ class Animal(ABC):
 
     def __str__(self):
         """
-        Return a readable summary of the animal’s details.
+        Returns a formatted string representation of the animal’s details.
+
+         Purpose:
+                Helps display animal details clearly when printed or logged.
 
         Returns:
-            str: The formatted animal description.
+                str: The formatted description containing species, name, age, and diet.
         """
         return (self.__species + " named " + self.__name + ", Age: " + str(self.__age) + ", Diet: " + self.__diet)
 
