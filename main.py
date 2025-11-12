@@ -34,12 +34,12 @@ def main():
 
 
 
-    print("--- Testing animal sounds ---")
+    print("\n--- Testing animal sounds ---")
 
     # Test the make_sound() method for each
-    lion.make_sound()
-    parrot.make_sound()
-    snake.make_sound()
+    print(lion.make_sound())
+    print(parrot.make_sound())
+    print(snake.make_sound())
 
 
 
