@@ -21,7 +21,6 @@ class Staff(ABC):
     and implement the abstract perform_duty() method.
     """
 
-
     def __init__(self, name, role):
         """
         This function initializes a Staff object with a name, role,
