@@ -32,6 +32,18 @@ def main():
     print(parrot)
     print(snake)
 
+
+
+    print("--- Testing animal sounds ---")
+
+    # Test the make_sound() method for each
+    lion.make_sound()
+    parrot.make_sound()
+    snake.make_sound()
+
+
+
+
     # -------------------------------------------------
     # 2. Create Enclosures
     # -------------------------------------------------
