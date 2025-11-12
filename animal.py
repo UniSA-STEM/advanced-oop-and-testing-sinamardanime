@@ -34,33 +34,34 @@ class Animal(ABC):
                Returns:
                    None
                """
-        # Private attributes for data hiding
+        # Private attributes for encapsulation (cannot be accessed directly)
         self.__name = name
         self.__species = species
 
-        # Use properties for age and diet to apply validation automatically
+        # Uses properties to apply validation automatically through setters
         self.age = age
         self.diet = diet
+        # Initialises an empty list to store the animal's health records
         self.__health_records = []
 
 
     def get_name(self):
         """
-        Return the animal's name.
+        Returns the animal's name.
 
         Returns:
-            str: The name of the animal.
+            Str: The current name of the animal.
         """
-        return self.__name
+        return self.__name # Returns the private attribute __name
 
     def get_species(self):
-        """
-        Return the animal's species.
+         """
+        Returns the animal’s species.
 
         Returns:
-            str: The species/type of the animal.
+            str: The type or species of the animal.
         """
-        return self.__species
+         return self.__species
 
 
     def get_age(self):
@@ -73,18 +74,25 @@ class Animal(ABC):
         return self.__age
 
     def set_age(self, new_age):
-        """
-        Set the animal's age with validation.
+           """
+        This function Validates and sets the animal’s age.
 
-        Validation:
-            - Must be an integer.
+        Parameters:
+            new_age (int): The new age to assign to the animal.
+
+        Validation Rules:
+            - Must be an integer value.
             - Must be greater than or equal to 0.
+            - If invalid, defaults to 0.
 
-        If invalid, the age defaults to 0.
+        Returns:
+            None
         """
+        # Checks if new_age is valid
         if isinstance(new_age, int) and new_age >= 0:
             self.__age = new_age
         else:
+            # If it is  invalid, set a default safe value and warn the user
             print("Invalid age provided. Defaulting to 0.")
             self.__age = 0
 
