@@ -181,12 +181,17 @@ class Mammal(Animal):
             None
         """
         try:
+            # Checks if the new_speed value is a number (int or float)
             if not isinstance(new_speed, (int, float)):
                 raise TypeError("Speed must be a number")
+            # Checks if the speed is positive (cannot be zero or negative)
             if new_speed <= 0:
                 raise ValueError("Speed must be positive")
+            # If all checks pass, set the private speed attribute
             self.__speed = new_speed
         except (TypeError, ValueError) as e:
+            # This handles any invalid input by printing an error message
+            # e stores the specific error raised (TypeError or ValueError)
             print("Invalid speed: " + str(e) + ". Defaulting to 20 km/h.")
             self.__speed = 20
 
