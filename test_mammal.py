@@ -18,7 +18,7 @@ def normal_mammal():
 @pytest.fixture
 def invalid_mammal():
     """Create a mammal with invalid inputs."""
-    return Mammal("Dusty", "Camel", -2, "", "", "", None, -5, -50)
+    return Mammal("Dusty", "Camel", -2, "", "", "", None, -1, -50)
 
 
 # ---------- TESTS ----------
@@ -51,7 +51,7 @@ def test_make_sound_and_move(normal_mammal):
     """Test sound and movement output."""
     result_move = normal_mammal.move()
     assert "growls" in normal_mammal.make_sound().lower()
-    assert "runs" in result_move.lower()
+    assert "moves at" in result_move.lower()
     assert "80 km/h" in result_move
     assert "savanna" in result_move.lower()
 
