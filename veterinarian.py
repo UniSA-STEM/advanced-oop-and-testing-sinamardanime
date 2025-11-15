@@ -114,7 +114,7 @@ class Veterinarian(Staff):
             # Prints confirmation of the update
             print(self.name + " adds a note for " + animal.name + ": " + note)
 
-        # Handles possible errors gracefully
+        # Handles possible errors
         except ValueError as e:
             print(f"Error: {e}")
         except IndexError as e:
