@@ -62,3 +62,16 @@ def test_move():
 
     # Confirm correct movement description
     assert r.move() == expected_output
+
+
+
+
+def test_shed_skin(basic_reptile):
+    """
+    Tests the unique reptile behaviour of shedding skin.
+    The message should include the reptile's name.
+    """
+    expected_output = "Rango is shedding its old skin to grow a new layer."
+
+    # Confirm behaviour output
+    assert basic_reptile.shed_skin() == expected_output
