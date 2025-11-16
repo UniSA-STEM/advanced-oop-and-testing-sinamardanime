@@ -40,3 +40,25 @@ def custom_reptile():
         is_venomous=False,
         temperature=25
     )
+
+
+def test_make_sound(basic_reptile):
+    """
+    Tests the overridden make_sound() method to ensure
+    the reptile returns the correct hissing sound.
+    """
+    # Reptile should hiss using its name
+    assert basic_reptile.make_sound() == "Rango hisses softly."
+
+
+def test_move():
+    """
+    Tests movement behaviour. The movement string should include the
+    reptile's name and the habitat, converted to lowercase.
+    """
+    r = Reptile("Spike", "Lizard", 2, "Insects", habitat="Forest")
+
+    expected_output = "Spike slithers or crawls across the forest."
+
+    # Confirm correct movement description
+    assert r.move() == expected_output
