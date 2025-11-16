@@ -75,3 +75,21 @@ def test_shed_skin(basic_reptile):
 
     # Confirm behaviour output
     assert basic_reptile.shed_skin() == expected_output
+
+
+def test_str(custom_reptile):
+    """
+    Tests the __str__ method to ensure that the formatted description
+    contains all relevant reptile details (habitat, temperature, diet, etc.).
+    """
+    r = custom_reptile
+    output = str(r)
+
+    # Checking important sections of the formatted string
+    assert "Togo is a Gecko" in output
+    assert "desert" in output.lower()
+    assert "smooth scales" in output.lower()
+    assert "non-venomous" in output.lower()
+    assert "25°C" in output
+    assert "insects diet" in output.lower()
+    assert "1 years old" in output.lower()
