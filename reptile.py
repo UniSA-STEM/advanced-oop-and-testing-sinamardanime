@@ -104,3 +104,4 @@ class Reptile(Animal):
             self.get_name() + " follows a " + self.diet.lower() +
             " diet and is currently " + str(self.age) + " years old."
         )
+

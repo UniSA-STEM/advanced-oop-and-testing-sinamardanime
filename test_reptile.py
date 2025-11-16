@@ -93,3 +93,14 @@ def test_str(custom_reptile):
     assert "25°C" in output
     assert "insects diet" in output.lower()
     assert "1 years old" in output.lower()
+
+def test_default_values():
+    """
+       Tests that the Reptile class correctly applies default values
+       when optional arguments are not provided during creation.
+       """
+    r = Reptile("Lizzy", "Lizard", 2, "Insects")
+    assert r.scale_type == "Smooth"
+    assert r.habitat == "Desert"
+    assert r.is_venomous is False
+    assert r.temperature == 30
