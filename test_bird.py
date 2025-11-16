@@ -70,3 +70,12 @@ def test_make_sound(custom_bird):
     """
     b = custom_bird
     assert b.make_sound() == "Aquila sings a screech tune."
+
+
+
+def test_fly_when_cannot_fly():
+    """
+    Tests the fly() method when the bird cannot fly.
+    """
+    b = Bird("Dodo", "Dodo", 10, "Fruit", can_fly=False)
+    assert b.fly() == "Dodo cannot fly and prefers to hop or walk."
