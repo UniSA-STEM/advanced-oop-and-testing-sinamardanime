@@ -63,3 +63,10 @@ def test_initialisation(custom_bird):
     assert b.song_type == "Screech"
     assert b.weight == 6.2
 
+
+def test_make_sound(custom_bird):
+    """
+    Tests overridden make_sound() output using the bird’s song_type.
+    """
+    b = custom_bird
+    assert b.make_sound() == "Aquila sings a screech tune."
