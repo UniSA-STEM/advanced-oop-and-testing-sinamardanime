@@ -1,8 +1,17 @@
-"""
+'''
 File: test_mammal.py
-Description: Unit tests for the Mammal subclass.
+Description: This file contains a set of pytest unit tests for the Mammal class.
+             These tests check that Mammals are created correctly, that their
+             behaviours (such as moving, making sounds) work
+             as intended, and that the class returns clear and accurate
+             descriptions through its string output.
 Author: Sina Mardani Mehrabad
-"""
+ID: 110471492
+Username: marsy127
+This is my own work as defined by the University's Academic Integrity Policy.
+'''
+
+
 
 import pytest
 from mammal import Mammal

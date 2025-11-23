@@ -2,7 +2,7 @@
 File: animal.py
 Description: A brief description of this Python module.
 Author: Sina Mardani Mehrabad
-ID: 110100110
+ID: 110471492
 Username: marsy127
 This is my own work as defined by the University's Academic Integrity Policy.
 '''

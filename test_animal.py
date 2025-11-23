@@ -1,19 +1,20 @@
+
 """
 File: test_animal.py
 Description: Unit tests for the Animal class using pytest fixtures.
 Author: Sina Mardani Mehrabad
+ID: 110471492
+Username: marsy127
+This is my own work as defined by the University's Academic Integrity Policy.
 """
+
+
 
 import pytest
 from animal import Animal
 from health_record import HealthRecord
 
 
-"""
-File: test_animal.py
-Description: Unit tests for the Animal class using pytest fixtures.
-Author: Sina Mardani Mehrabad
-"""
 
 import pytest
 from animal import Animal

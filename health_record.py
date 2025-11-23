@@ -2,7 +2,7 @@
 File: health_record.py
 Description: Defines the HealthRecord class for tracking animal health, issues, treatments, and medical notes.
 Author: Sina Mardani Mehrabad
-ID: 110100110
+ID: 110471492
 Username: marsy127
 This is my own work as defined by the University's Academic Integrity Policy.
 '''

@@ -4,7 +4,7 @@ Description: Defines the Reptile class, a subclass of Animal, representing
              cold-blooded creatures like snakes and lizards that have scales
              and may be venomous.
 Author: Sina Mardani Mehrabad
-ID: 110100110
+ID: 110471492
 Username: marsy127
 This is my own work as defined by the University's Academic Integrity Policy.
 '''
