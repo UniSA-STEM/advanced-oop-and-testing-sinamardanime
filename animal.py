@@ -1,6 +1,7 @@
 '''
 File: animal.py
-Description: A brief description of this Python module.
+Description: Contains the abstract Animal class and core functionality
+             for managing animal attributes, behaviour, and health records.
 Author: Sina Mardani Mehrabad
 ID: 110471492
 Username: marsy127

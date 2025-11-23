@@ -120,7 +120,7 @@ def main():
     print("A wildlife organisation has decided to temporarily move Leo for medical observation.\n")
     savannah_enclosure.remove_animal(lion)
 
-    print("\n----------- Updated Enclosure Report ----------------------")
+    print("\n----------- Updated Enclosure Report after moving Leo ----------------------")
     savannah_enclosure.report_status()
 
 
